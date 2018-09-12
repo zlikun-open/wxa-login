@@ -1,0 +1,19 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo}}">
+      <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"> 获取头像昵称 </button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text>{{getApp().globals.version}}</text>
+    </block>
+  </view>
+  <!--
+  <view>
+    <button open-type="getPhoneNumber" bindgetphonenumber="onGotPhoneNumber"> 获取用户手机 </button>
+    <text>{{userInfo.phoneNumber}}</text>
+  </view>
+  -->
+</view>
